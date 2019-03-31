@@ -9,7 +9,11 @@ import { HEROES } from './mock-heroes';
   providedIn: 'root'
 })
 export class HeroService {
-  getHeroes() : Observable<Hero[]>{
+  getHero(id: number) : Observable<Hero>{
+    this.messageService.add("Added message");
+    return of(HEROES.find(hero => hero.id === id));
+  }
+    getHeroes() : Observable<Hero[]>{
     this.messageService.add("Added message");
     return of(HEROES);
   }
